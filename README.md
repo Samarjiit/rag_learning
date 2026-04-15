@@ -51,37 +51,41 @@ chunks = splitter.split_documents(documents)
 ---
 
 ### 🧠 Vector Embeddings & Database
+
 **Location**: `0-data-ingestion-parsing/1-vector-embedding-database/`
 
 Comprehensive module for converting text into numerical vector representations and measuring semantic similarity for RAG retrieval systems.
 
 **Supported Models**:
+
 - 🤗 **HuggingFace Models**: Free, privacy-friendly, good quality
 - 🔮 **OpenAI Models**: Premium quality, API-based, cost-effective
 
 **Key Features**:
+
 - **Multiple Providers**: HuggingFace and OpenAI embeddings
-- **Model Comparison**: Performance vs quality analysis  
+- **Model Comparison**: Performance vs quality analysis
 - **Semantic Search**: Find documents by meaning, not keywords
 - **Cosine Similarity**: Mathematical similarity measurement
 - **Batch Processing**: Efficient multiple text embedding
 
 **Popular Models**:
 
-| Provider | Model | Dimensions | Best For |
-|----------|-------|------------|----------|
-| HuggingFace | `all-MiniLM-L6-v2` | 384 | Fast, general purpose |
-| HuggingFace | `all-mpnet-base-v2` | 768 | Highest quality |
-| OpenAI | `text-embedding-3-small` | 1536 | Cost-effective |
-| OpenAI | `text-embedding-3-large` | 3072 | Maximum accuracy |
+| Provider    | Model                    | Dimensions | Best For              |
+| ----------- | ------------------------ | ---------- | --------------------- |
+| HuggingFace | `all-MiniLM-L6-v2`       | 384        | Fast, general purpose |
+| HuggingFace | `all-mpnet-base-v2`      | 768        | Highest quality       |
+| OpenAI      | `text-embedding-3-small` | 1536       | Cost-effective        |
+| OpenAI      | `text-embedding-3-large` | 3072       | Maximum accuracy      |
 
 **Quick Start**:
+
 ```python
 # HuggingFace (Free)
 from langchain_huggingface import HuggingFaceEmbeddings
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-# OpenAI (Premium)  
+# OpenAI (Premium)
 from langchain_openai import OpenAIEmbeddings
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
