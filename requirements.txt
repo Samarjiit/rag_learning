@@ -17,3 +17,7 @@ openpyxl
 jq
 matplotlib
 langchain-huggingface
+langchain-experimental
+rank_bm25
+wikipedia
+

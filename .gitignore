@@ -13,3 +13,4 @@ wheels/
 # Vector store indexes (auto-generated, do not commit)
 **/chroma_db/
 **/faiss_index/
+**/output/
