@@ -300,6 +300,72 @@ docs = vectorstore.similarity_search(hyde_chain.invoke({"query": user_query}), k
 
 ---
 
+### 🖼️ Multimodal RAG
+
+**Location**: `6-multimodal_rag/`
+
+Extends standard RAG to handle **both text and images** from PDF documents using CLIP unified embeddings and GPT-4 Vision for answer generation.
+
+**Key Features**:
+
+- 🔍 **CLIP Embeddings**: Unified 512-dim vector space for text and images
+- 📄 **PDF Parsing**: Extracts text chunks and images per page using PyMuPDF
+- 🗄️ **FAISS Index**: Precomputed multimodal embeddings for fast retrieval
+- 🤖 **GPT-4 Vision**: Answers with both text context and base64 images
+- 🔗 **Cross-modal Retrieval**: A text query can retrieve relevant images and vice versa
+
+**Quick Start**:
+
+```python
+# Embed both text and images with CLIP
+query_embedding = embed_text("What does the revenue chart show?")
+
+# Retrieve top-k docs (text + images together)
+results = vector_store.similarity_search_by_vector(query_embedding, k=5)
+
+# Answer with GPT-4V using text + base64 images
+response = llm.invoke([create_multimodal_message(query, results)])
+```
+
+📖 **Detailed Documentation**: [Multimodal RAG Guide](docs/multimodal_rag.md)
+
+---
+
+### 🔗 LangChain Updated — Modern Patterns
+
+**Location**: `7-updatedlangchain/`
+
+Covers the **modern LangChain 1.x API** — replacing older deprecated approaches with current patterns for model integration, tools, messages, structured output, and agent middleware.
+
+**Notebooks**:
+
+| Notebook                   | Focus                              | Key APIs                                                    |
+| -------------------------- | ---------------------------------- | ----------------------------------------------------------- |
+| `1-langchainintro.ipynb`   | Agent creation                     | `create_agent()`, `@tool`                                   |
+| `2-modelintegration.ipynb` | Multi-model (OpenAI, Gemini, Groq) | `init_chat_model()`, `.stream()`, `.batch()`                |
+| `3-tools.ipynb`            | Tool definition & execution loop   | `@tool`, `bind_tools()`, `tool_calls`                       |
+| `4-messages.ipynb`         | Message types                      | `SystemMessage`, `HumanMessage`, `AIMessage`, `ToolMessage` |
+| `5-structuredoutput.ipynb` | Typed LLM responses                | `.with_structured_output()`, `BaseModel`, `TypedDict`       |
+| `6-middleware.ipynb`       | Agent control                      | `SummarizationMiddleware`, `HumanInTheLoopMiddleware`       |
+
+**Quick Start**:
+
+```python
+# Universal model initialization
+llm = init_chat_model("groq:llama-3.1-8b-instant")
+
+# Structured output
+class Result(BaseModel):
+    answer: str
+    confidence: float
+
+result = llm.with_structured_output(Result).invoke("Is Python good for ML?")
+```
+
+📖 **Detailed Documentation**: [LangChain Updated Guide](docs/langchain_updated.md)
+
+---
+
 ### �🔄 More Modules Coming Soon...
 
 _This section will be updated as additional RAG components are added_
@@ -382,6 +448,15 @@ genai/
     ├── 2-query-decomposition.ipynb   # Query decomposition
     ├── 3-hyde.ipynb                  # HyDE — hypothetical document embeddings
     └── langchain_crewai_dataset.txt  # Sample dataset
+6-multimodal_rag/                    # Multimodal RAG
+    └── 1-multimodal.ipynb           # CLIP + GPT-4V multimodal pipeline
+7-updatedlangchain/                  # Modern LangChain patterns
+    ├── 1-langchainintro.ipynb       # Agents intro
+    ├── 2-modelintegration.ipynb     # Multi-model integration
+    ├── 3-tools.ipynb                # Tool definition and execution
+    ├── 4-messages.ipynb             # Message types
+    ├── 5-structuredoutput.ipynb     # Structured output schemas
+    └── 6-middleware.ipynb           # Summarization & human-in-the-loop
 ```
 
 ## 🛠️ Usage
@@ -401,6 +476,8 @@ genai/
 - [Semantic Chunking Guide](docs/semantic_chunking.md)
 - [Hybrid Search Strategies Guide](docs/hybrid_search_strategies.md)
 - [Query Enhancement Guide](docs/query_enhancement.md)
+- [Multimodal RAG Guide](docs/multimodal_rag.md)
+- [LangChain Updated Guide](docs/langchain_updated.md)
 
 ## 🤝 Contributing
 
