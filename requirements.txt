@@ -20,4 +20,8 @@ langchain-huggingface
 langchain-experimental
 rank_bm25
 wikipedia
+langgraph
+langchain-core
+arxiv
+
 
