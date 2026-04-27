@@ -23,5 +23,6 @@ wikipedia
 langgraph
 langchain-core
 arxiv
+langgraph-cli[inmem]
 
 
