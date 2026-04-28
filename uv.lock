@@ -898,8 +898,10 @@ dependencies = [
     { name = "langchain-groq" },
     { name = "langchain-huggingface" },
     { name = "langchain-openai" },
+    { name = "langchain-tavily" },
     { name = "langgraph" },
     { name = "langgraph-cli", extra = ["inmem"] },
+    { name = "langgraph-supervisor" },
     { name = "matplotlib" },
     { name = "openpyxl" },
     { name = "pandas" },
@@ -929,8 +931,10 @@ requires-dist = [
     { name = "langchain-groq", specifier = ">=1.1.2" },
     { name = "langchain-huggingface", specifier = ">=1.2.1" },
     { name = "langchain-openai", specifier = ">=1.1.12" },
+    { name = "langchain-tavily", specifier = ">=0.2.18" },
     { name = "langgraph", specifier = ">=1.1.6" },
     { name = "langgraph-cli", extras = ["inmem"], specifier = ">=0.4.24" },
+    { name = "langgraph-supervisor", specifier = ">=0.0.31" },
     { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "openpyxl", specifier = ">=3.1.5" },
     { name = "pandas", specifier = ">=3.0.2" },
@@ -1646,6 +1650,21 @@ wheels = [
 ]
 
 [[package]]
+name = "langchain-tavily"
+version = "0.2.18"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "langchain" },
+    { name = "langchain-core" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d6/6c/b309ef3062b189a82463dc93553804566e71aa393f9ba8954750793c1a6f/langchain_tavily-0.2.18.tar.gz", hash = "sha256:cd7859ae1a6ce79236580ef67072ff5fc43c7ded94e7eac38ff04209ca85a320", size = 25378, upload-time = "2026-04-16T15:23:24.526Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/71/9c/0c043e4434b1823f0ac194f66036cbb0569275a99dcb890e0891ecd34fb2/langchain_tavily-0.2.18-py3-none-any.whl", hash = "sha256:dccf3ad1c50e2cb2a89bec11727555805c9df8abd42c1f3ad42ccad86e28aa44", size = 30814, upload-time = "2026-04-16T15:23:23.424Z" },
+]
+
+[[package]]
 name = "langchain-text-splitters"
 version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1801,6 +1820,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/0e/db/77a45127dddcfea5e4256ba916182903e4c31dc4cfca305b8c386f0a9e53/langgraph_sdk-0.3.13.tar.gz", hash = "sha256:419ca5663eec3cec192ad194ac0647c0c826866b446073eb40f384f950986cd5", size = 196360, upload-time = "2026-04-07T20:34:18.766Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/fe/ef/64d64e9f8eea47ce7b939aa6da6863b674c8d418647813c20111645fcc62/langgraph_sdk-0.3.13-py3-none-any.whl", hash = "sha256:aee09e345c90775f6de9d6f4c7b847cfc652e49055c27a2aed0d981af2af3bd0", size = 96668, upload-time = "2026-04-07T20:34:17.866Z" },
+]
+
+[[package]]
+name = "langgraph-supervisor"
+version = "0.0.31"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langchain-core" },
+    { name = "langgraph" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/15/a0/6e9286a2e4a9ed8c9d299d0131b323cae376316a63286d2880031bb01082/langgraph_supervisor-0.0.31.tar.gz", hash = "sha256:0f71d5098fa1ac274423eff08750345450045c1e0dd2480ab7f3e5c1848f6016", size = 21910, upload-time = "2025-11-19T18:34:29.795Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1d/7f/bb73da8db36c96f32cdd0292f2cd75e2d671150b0d177575da560ad994a1/langgraph_supervisor-0.0.31-py3-none-any.whl", hash = "sha256:6bbe5311f536d38779766cc6f074005e3e892d37edbfd875731923221daa1889", size = 16505, upload-time = "2025-11-19T18:34:28.481Z" },
 ]
 
 [[package]]

@@ -24,5 +24,7 @@ langgraph
 langchain-core
 arxiv
 langgraph-cli[inmem]
-
+langchain_tavily
+langgraph_supervisor
+langchain_experimental
 
