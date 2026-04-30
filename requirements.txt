@@ -27,4 +27,6 @@ langgraph-cli[inmem]
 langchain_tavily
 langgraph_supervisor
 langchain_experimental
+langsmith
+openai
 
